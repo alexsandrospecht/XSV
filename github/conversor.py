@@ -13,19 +13,18 @@ class Conversor(object):
     def converter(self):
         root = ET.parse(self.xml).getroot()
         
-        file = open("saida.txt","w") 
-               
-#         for item in root.iter(root.tag):
-#             print(item.attrib)
-#         for item in root:
-#             print(reg)
-#             file.write(reg. + ',') 
+        exitFile = open("saida.txt","w") 
+                                     
+        for item in root:            
+            for value in list(item):
+                exitFile.write(value.tag + ',') 
+            break
         
-        file.write('\n') 
+        exitFile.write('\n') 
         
         for reg in root:    
             lista = list(reg)
             for element in lista:
-                file.write(element.text + ',') 
-            file.write('\n')     
+                exitFile.write(element.text + ',')
+            exitFile.write('\n')     
             
